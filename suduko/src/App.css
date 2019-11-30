@@ -17,28 +17,36 @@ body{
   width: 220px;
   margin-top: 300px;
 }
+.text_input{
+  font-size: 90px;
+}
 
 .Box1-row {
   display: flex;
   flex-direction: row;
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 130px;
   
   
  
 }
 .Box{
-  width: 50px;
-  height: 50px;
-  background-color: rgb(88, 241, 190);
-  line-height: 50px;
-  text-align: center;
+  width: 150px;
+  height: 130px;
+  background-color: rgba(247, 241, 179);
+  /* line-height: 30px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 90px;
   
 }
 
 input{
-  width: 45px;
-  height: 45px;
+  width: 135px;
+  height: 135px;
   text-align: center;
   border: none;
  

@@ -16,7 +16,17 @@ class Box extends Component {
     
   }
   checkAnswer(useranswer){
-    if(this.props.answer !== useranswer && useranswer!=''){
+    if(this.props.answer == useranswer){
+        this.setState(
+          {
+            color:"#ccc",
+            disabled: true
+          }
+        );
+    }
+    else {
+      if(this.props.answer !== useranswer && useranswer!=''){
+        this.props.wrongcount();
       if(this.state.count == 1)
       {
         this.setState(
@@ -52,19 +62,8 @@ class Box extends Component {
       }
    
     }
-    else
-    {
-     if(this.props.answer === useranswer)
-     {
-      this.setState(
-        {
-         color:'blue',
-         disabled : true,
-         useranswer:this.state.answer
-        }
-        )
-     }
-    }
+    
+  }
 
   }
 
@@ -78,7 +77,7 @@ class Box extends Component {
             <div className='Box' > {this.props.number}</div>
           ) : (
 
-                  <input type='text' value={this.state.value} style={{backgroundColor:this.state.color}} 
+                  <input type='text' className="text_input" value={this.state.value} style={{backgroundColor:this.state.color}} 
                   onChange={(event)=> this.checkAnswer(event.target.value)}  disabled={(this.state.disabled)? 'disabled':''} maxLength={1} />
                 )
           }
@@ -90,6 +89,19 @@ class Box extends Component {
 }
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      incorretattempts:0
+    }
+    this.increment = this.increment.bind(this)
+  }
+
+  increment(){
+    this.setState({
+      incorretattempts:this.state.incorretattempts + 1
+    })
+  }
 
   render() {
     return (
@@ -98,37 +110,38 @@ class App extends Component {
           <div className="Box1-row">
 
             <Box number={3} />
-            <Box answer={1} />
-            <Box answer={4} />
+            <Box answer={1} wrongcount = {this.increment} />
+            <Box answer={4}  wrongcount = {this.increment}/>
             <Box number={2} />
           </div>
         </div>
         <div className="line">
           <div className="Box1-row">
-            <Box answer={2} />
+            <Box answer={2}  wrongcount = {this.increment} />
             <Box number={4} />
             <Box number={1} />
-            <Box answer={3} />
+            <Box answer={3}  wrongcount = {this.increment}/>
 
           </div>
         </div>
         <div className="line">
           <div className="Box1-row">
-            <Box answer={1} />
+            <Box answer={1}  wrongcount = {this.increment} />
             <Box number={3} />
             <Box number={2} />
-            <Box answer={4} />
+            <Box answer={4}  wrongcount = {this.increment}/>
 
           </div>
         </div>
         <div className="line">
           <div className="Box1-row">
             <Box number={4} />
-            <Box answer={2} />
-            <Box answer={3} />
+            <Box answer={2}  wrongcount = {this.increment}/>
+            <Box answer={3}  wrongcount = {this.increment}/>
             <Box number={1} />
           </div>
         </div>
+            <h1>total wrong attempts:{this.state.incorretattempts}</h1>
       </div>
 
     );
