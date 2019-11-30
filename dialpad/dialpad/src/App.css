@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.cal-btn {
+  width: 70px;
+  height: 70px;
+  background-color:white;
+  color: black;
+  margin: 10px;
+}
+.cal-btn1{
+  width: 350px;
+  height: 50px;
+  margin: 10px;
+}
+
+.cal{
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  width: 380px;
+  height: 500px;
+  margin-left: 600px;
+  background-color: black;
+}
+
+.cal input{
+  margin-left: 10px;
+  height: 60px;
+  width: 340px;
+  text-align: right;
+}
