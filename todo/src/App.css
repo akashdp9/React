@@ -1,0 +1,36 @@
+.App{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.App-header{
+  border: 1px solid black;
+  width: 700px;
+  height: 900px;
+  background-color: rgb(226, 199, 204)
+  
+}
+.textar{
+  border: 2px solid rgb(122, 16, 99);
+  margin: 10px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.textadjust{
+  display: flex;
+  flex-direction: column;
+}
+.btn{
+  height: 50px;
+  width: 150px;
+  background-color: blue;
+  color:white;
+}
+.msg{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
